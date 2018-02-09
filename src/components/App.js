@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import PropTypes from 'prop-types';
 import DogList from './DogList';
 import { fetchDogs } from '../services/fetchDogs';
 
@@ -10,17 +9,26 @@ class App extends Component {
     dogs: []
   }
 
-  componentDidMount() {
-    fetchDogs()
-    .then(dogs => {
-      this.setState({ dogs })
+  async componentDidMount() {
+    const dogs = await fetchDogs()
+    .then((data) => {
+      let dogsArr = [];
+      for (let breed in data) {
+        dogsArr.push({
+          breed: breed,
+          subBreeds: data[breed]
+        })
+      }
+      return dogsArr
     })
+
+    this.setState({ dogs })
   }
 
   render() {
     return (
       <section className="App">
-        <DogList />
+        <DogList dogs={this.state.dogs} />
       </section>
     );
   }
