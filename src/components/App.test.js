@@ -42,12 +42,22 @@ describe('Given `App`', () => {
 
   it('should contain a `DogList` component', () => {
 
-    const component = shallow(<App />);
+    const component = renderComponent();
 
     expect(component.find('DogList').exists()).to.be.true();
 
   })
 
-  it('should contain no `dogBreeds`')
+  describe('when there is dog data', () => {
+
+    it('should contain dog data', () => {
+
+      const component = renderComponent({fetchDogs: fetchDogsStub});
+
+      sinon.assert.calledOnce(fetchDogsStub)
+
+    })
+
+  })
 
 })

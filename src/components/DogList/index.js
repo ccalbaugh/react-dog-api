@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 const DogList = () => {
     return (
-        <div></div>
+        <div className="dog-list"></div>
     );
 };
 
