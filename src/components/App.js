@@ -15,9 +15,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <section className="App">
         <DogList />
-      </div>
+      </section>
     );
   }
 }

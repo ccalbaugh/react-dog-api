@@ -39,6 +39,13 @@ describe('Given `App`', () => {
 
   }
 
+  it('should exist as a section', () => {
+
+    const component = renderComponent();
+
+    expect(component.type()).to.equal('section')
+
+  })
 
   it('should contain a `DogList` component', () => {
 
@@ -52,9 +59,25 @@ describe('Given `App`', () => {
 
     it('should contain dog data', () => {
 
-      const component = renderComponent({fetchDogs: fetchDogsStub});
+      const component = renderComponent();
 
       sinon.assert.calledOnce(fetchDogsStub)
+
+    })
+
+    it('should contain dogs', async () => {
+
+      try {
+        
+        const component = await renderComponent();
+
+        expect(component.state().dogs.length).to.equal(2)
+
+      } catch(e) {
+        
+        console.log(e)
+
+      }
 
     })
 
