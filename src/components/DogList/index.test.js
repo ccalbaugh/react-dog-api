@@ -6,12 +6,28 @@ import DogList from './index';
 
 describe('Given `DogList`', () => {
 
-  it('should contain a `div`', () => {
+  const requiredProps = (overrideProps = {}) => {
 
-    const component = shallow(<DogList />);
+    return {
+      ...overrideProps
+    }
+
+  }
+
+  const renderComponent = (props = requiredProps()) => {
+
+    return shallow(<DogList {...props} />)
+
+  }
+
+  it('should exist as a `div`', () => {
+
+    const component = renderComponent();
 
     expect(component.find('div').exists()).to.be.true();
 
   })
+
+
 
 })
