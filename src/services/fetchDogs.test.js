@@ -31,5 +31,5 @@ describe('fetchDogs', () => {
         sinon.assert.calledOnce(fetchDogsStub)
 
     })
-  
+    
   })

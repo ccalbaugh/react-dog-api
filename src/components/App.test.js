@@ -14,7 +14,7 @@ describe('Given `App`', () => {
 
     sandbox = sinon.createSandbox()
 
-    fetchDogsStub = sandbox.stub(dogServices, 'fetchDogs').resolves(['one', 'two'])
+    fetchDogsStub = sandbox.stub(dogServices, 'fetchDogs').resolves({dogs:['1']})
 
   })
 
@@ -71,7 +71,7 @@ describe('Given `App`', () => {
         
         const component = await renderComponent();
 
-        expect(component.state().dogs.length).to.equal(2)
+        expect(component.state().dogs).to.equal({dogs:['1']})
 
       } catch(e) {
         

@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 import DogList from './DogList';
 import { fetchDogs } from '../services/fetchDogs';
 
 class App extends Component {
 
-  componentDidMount() {
-    this.fetchDogList()
+  state = {
+    dogs: []
   }
 
-  fetchDogList = () => {
-    return fetchDogs()
+  componentDidMount() {
+    fetchDogs()
+    .then(dogs => {
+      this.setState({ dogs })
+    })
   }
 
   render() {
