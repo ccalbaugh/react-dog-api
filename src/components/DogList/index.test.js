@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { expect } from 'code';
 import sinon from 'sinon';
-import DogList from './DogList';
+import DogList from './index';
 
 describe('Given `DogList`', () => {
 

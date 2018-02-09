@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { expect } from 'code';
 import sinon from 'sinon';
 import App from './App';
 
