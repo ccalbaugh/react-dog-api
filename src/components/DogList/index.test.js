@@ -24,7 +24,7 @@ describe('Given `DogList`', () => {
 
     const component = renderComponent();
 
-    expect(component.find('div').exists()).to.be.true();
+    expect(component.type()).to.equal('ul');
 
   })
 
