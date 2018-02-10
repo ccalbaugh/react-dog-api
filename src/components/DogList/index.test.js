@@ -28,6 +28,14 @@ describe('Given `DogList`', () => {
 
   })
 
+  describe('when there is `dog` data', () => {
+
+    const component = renderComponent();
+
+    expect(component.find('li').length).to.be.at.least(1);
+
+  })
+
 
 
 })
